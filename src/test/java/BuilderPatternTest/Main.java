@@ -1,12 +1,12 @@
 package BuilderPatternTest;
 
-import BuilderPattern.CarWithBuilder;
-import BuilderPattern.CarWithConstructor;
-import BuilderPattern.CarWithLombokBuilder;
-import BuilderPattern.components.Engine;
-import BuilderPattern.components.Fuel;
-import BuilderPattern.components.Seat;
-import BuilderPattern.components.Stearing;
+import Creational.BuilderPattern.CarWithBuilder;
+import Creational.BuilderPattern.CarWithConstructor;
+import Creational.BuilderPattern.CarWithLombokBuilder;
+import Creational.BuilderPattern.components.Engine;
+import Creational.BuilderPattern.components.Fuel;
+import Creational.BuilderPattern.components.Seat;
+import Creational.BuilderPattern.components.Stearing;
 
 import java.util.ArrayList;
 
@@ -24,9 +24,9 @@ public class Main {
 
         CarWithBuilder carWithBuilder = CarWithBuilder.builder()
                 .engine(new Engine())
-                .withSteering(new Stearing())
-                .withSeats(new ArrayList<Seat>())
-                .withFuel(new Fuel())
+                .stearing(new Stearing())
+                .seats(new ArrayList<Seat>())
+                .fuel(new Fuel())
                 .build();
 
         System.out.println(carWithLombokBuilder.toString());

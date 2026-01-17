@@ -1,9 +1,9 @@
 package DecoratorPatternTest;
 
-import DecoratorPattern.Car.BasicCar;
-import DecoratorPattern.Car.Car;
-import DecoratorPattern.Car.LuxuryCarDecorator;
-import DecoratorPattern.Car.SportsCarDecorator;
+import Structural.DecoratorPattern.Car.BasicCar;
+import Structural.DecoratorPattern.Car.Car;
+import Structural.DecoratorPattern.Car.LuxuryCarDecorator;
+import Structural.DecoratorPattern.Car.SportsCarDecorator;
 
 public class DecoratorPatternTest {
     public static void main(String[] args) {

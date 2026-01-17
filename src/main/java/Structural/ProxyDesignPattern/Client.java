@@ -1,11 +1,6 @@
-package ProxyDesignPattern;
+package Structural.ProxyDesignPattern;
 
-import Structural.ProxyDesignPattern.Employee;
-import Structural.ProxyDesignPattern.EmployeeDao;
-import Structural.ProxyDesignPattern.EmployeeDaoImpl;
-import Structural.ProxyDesignPattern.EmployeeDaoProxy;
-
-public class Main {
+public class Client {
     public static void main(String[] args) {
 
         try {
