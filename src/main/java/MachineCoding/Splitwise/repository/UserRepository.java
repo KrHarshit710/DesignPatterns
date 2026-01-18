@@ -2,7 +2,6 @@ package MachineCoding.Splitwise.repository;
 
 import MachineCoding.Splitwise.entity.Expense;
 import MachineCoding.Splitwise.entity.User;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -42,9 +41,9 @@ public class UserRepository {
     public void showUserLendingHistory(String name){
         for(Map.Entry<String,Double> entry : users.get(name).getLendingMap().entrySet()){
             if(entry.getValue() > 0){
-                System.out.println(entry.getKey() + " owes "  + name + entry.getValue()  + " rupee ");
+                System.out.println(entry.getKey() + " owes "  + name + " " + entry.getValue()  + " rupee ");
             } else {
-                System.out.println(name + " owes "  + entry.getKey() + entry.getValue()  + " rupee ");
+                System.out.println(name + " owes "  + entry.getKey() + " " + entry.getValue()  + " rupee ");
             }
         }
     }

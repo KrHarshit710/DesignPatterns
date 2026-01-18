@@ -15,7 +15,11 @@ import java.util.List;
 public class SplitwiseApplication {
     public static void main(String[] args) {
         SpringApplication.run(SplitwiseApplication.class, args);
-        SplitwiseService splitwiseService = new SplitwiseService();
+        ExpenseValidatorFactory expenseValidatorFactory = new ExpenseValidatorFactory();
+        UserRepository userRepository = new UserRepository();
+        ExpenseRepository expenseRepository = new ExpenseRepository(userRepository);
+        SplitwiseService splitwiseService = new SplitwiseService(expenseValidatorFactory, userRepository, expenseRepository);
+
         User harshit = splitwiseService.addUser("Harshit", "harshit@gmail.com", "12345");
         User pawan = splitwiseService.addUser("Pawan", "pawan@gmail.com", "654321");
         User siman = splitwiseService.addUser("Siman", "siman@gmail.com", "12345");

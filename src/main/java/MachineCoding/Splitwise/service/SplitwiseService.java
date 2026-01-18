@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,24 +24,26 @@ public class SplitwiseService {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-//    public SplitwiseService(ExpenseValidatorFactory expenseValidatorFactory, UserRepository userRepository, ExpenseRepository expenseRepository) {
-//        this.expenseValidatorFactory = expenseValidatorFactory;
-//        this.userRepository = userRepository;
-//        this.expenseRepository = expenseRepository;
-//    }
+    public SplitwiseService(ExpenseValidatorFactory expenseValidatorFactory, UserRepository userRepository, ExpenseRepository expenseRepository) {
+        this.expenseValidatorFactory = expenseValidatorFactory;
+        this.userRepository = userRepository;
+        this.expenseRepository = expenseRepository;
+    }
 
     public User addUser(String name, String emailId, String mobileNo){
         User user = User.builder()
                 .name(name)
                 .emailId(emailId)
-                .mobileNo(mobileNo).build();
+                .mobileNo(mobileNo)
+                .lendingMap(new HashMap<>()).build();
 
         return userRepository.addUser(user);
     }
 
     public void addExpense(@NonNull String paidBy, @NonNull List<String> splitBetween, @NonNull ExpenseType expenseType,
                            @NonNull Double amount, List<Double> splitShare){
-        if(expenseValidatorFactory.getExpenseValidator(expenseType).validateExpense(amount, splitShare)){
+
+        if(!expenseValidatorFactory.getExpenseValidator(expenseType).validateExpense(amount, splitShare)){
             System.out.println("Enter values correctly !!!");
             return;
         }

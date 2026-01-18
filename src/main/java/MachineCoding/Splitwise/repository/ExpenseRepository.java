@@ -11,11 +11,13 @@ import java.util.Map;
 public class ExpenseRepository {
     private Map<String, Expense> expenses;
 
-    @Autowired
+
     private UserRepository userRepository;
 
-    public ExpenseRepository() {
+    @Autowired
+    public ExpenseRepository(UserRepository userRepository) {
         this.expenses = new HashMap<>();
+        this.userRepository = userRepository;
     }
 
     public void addExpense(Expense expense){
